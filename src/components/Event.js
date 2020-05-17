@@ -4,7 +4,7 @@ import AppContext from '../contexts/AppContext'
 import {
     ADD_OPERATION_LOG,
     DELETE_EVENT,
-    // REVERSE_DONE_FLAG
+    REVERSE_FLAG
 } from '../actions/index'
 import { timeCurrentIso8601 } from '../utils'
 
@@ -12,6 +12,7 @@ import { timeCurrentIso8601 } from '../utils'
 const Event = ({ event }) => {
     const { state, dispatch } = useContext(AppContext)
     const id = event.id
+    const flag = event.flag
 
 
     const handleClickDeleteButton = () => {
@@ -26,11 +27,15 @@ const Event = ({ event }) => {
         }
     }
 
+    const handleReverse = () => {
+        dispatch({ type: REVERSE_FLAG, id, flag })
+    }
+
 
 
     return (
         <tr>
-            <td><input type="checkbox" /></td>
+            <td><input type="checkbox" onChange={handleReverse} /></td>
             <td>{id}</td>
             <td>{event.title}</td>
             <td>{event.body}</td>

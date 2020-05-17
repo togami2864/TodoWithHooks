@@ -21,6 +21,7 @@ const EventForm = () => {
             type: CREATE_EVENT,
             title,
             body,
+            flag: false
         })
 
         dispatch({
