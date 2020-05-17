@@ -20,7 +20,7 @@ const EventForm = () => {
         dispatch({
             type: CREATE_EVENT,
             title,
-            body
+            body,
         })
 
         dispatch({
