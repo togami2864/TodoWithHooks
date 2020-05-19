@@ -38,7 +38,7 @@ const Event = ({ event }) => {
 
     return (
         <tr>
-            <td><input type="checkbox" onChange={handleDone} /></td>
+            <td><input type="checkbox" onChange={handleDone} checked={event.isChanged} /></td>
             <td>{id}</td>
             <td>{event.title}</td>
             <td>{event.body}</td>
