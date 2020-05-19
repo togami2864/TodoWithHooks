@@ -13,6 +13,10 @@ import shortid from 'shortid';
 const Events = () => {
 
     const { state } = useContext(AppContext)
+
+    const progress = state.events.length > 0 ? ((3 / state.events.length) * 100).toFixed(1) : 0;
+    // console.log(state.events[0].count)
+    console.log(progress)
     return (
         <div className="container-lg">
             <div className="row">
@@ -40,7 +44,7 @@ const Events = () => {
                 <div className="col">
                     <AnimatedProgressProvider
                         valueStart={0}
-                        valueEnd={100}
+                        valueEnd={`${progress}`}
                         duration={1.4}
                         easingFunction={easeQuadInOut}
 
@@ -52,7 +56,7 @@ const Events = () => {
                                     <h1>Progress</h1>
                                     <CircularProgressbar
                                         value={value}
-                                        text={`${roundedValue}%`}
+                                        text={`${progress}%`}
                                         styles={buildStyles({ pathTransition: 'none' })}
                                     />
                                 </>

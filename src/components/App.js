@@ -21,6 +21,7 @@ const App = () => {
     useEffect(() => {
         localStorage.setItem('appWithRedux', JSON.stringify(state))
     }, [state])
+
     return (
         <AppContext.Provider value={{ state, dispatch }}>
             <div className="container-fluid">
