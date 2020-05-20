@@ -27,10 +27,8 @@ const Event = ({ event }) => {
         }
     }
 
-    const handleDone = e => {
-        e.preventDefault()
-        const isChecked = state.events[id - 1].isChecked
-        dispatch({ type: REVERSE_DONE_FLAG, id, isChecked })
+    const handleDone = () => {
+        dispatch({ type: REVERSE_DONE_FLAG, id })
     }
 
 
@@ -38,7 +36,7 @@ const Event = ({ event }) => {
 
     return (
         <tr>
-            <td><input type="checkbox" onChange={handleDone} checked={event.isChanged} /></td>
+            <td><input type="checkbox" onChange={handleDone} checked={event.isChecked} /></td>
             <td>{id}</td>
             <td>{event.title}</td>
             <td>{event.body}</td>

@@ -7,16 +7,13 @@ import { CircularProgressbar, buildStyles, CircularProgressbarWithChildren } fro
 import '../style.css';
 import { easeQuadInOut } from 'd3-ease';
 import AnimatedProgressProvider from "./AnimatedProgressProvider";
-// import ChangingProgressProvider from "./ChangingProgressProvider";
 import shortid from 'shortid';
 
 const Events = () => {
 
     const { state } = useContext(AppContext)
 
-    const progress = state.events.length > 0 ? ((3 / state.events.length) * 100).toFixed(1) : 0;
-    // console.log(state.events[0].count)
-    console.log(progress)
+    const progress = state.events.length > 0 ? ((state.events[0].count / state.events.length) * 100).toFixed(1) : 0;
     return (
         <div className="container-lg">
             <div className="row">
@@ -32,10 +29,9 @@ const Events = () => {
                             </tr>
                         </thead>
                         <tbody >
-                            {state.events.map((event) => {
-                                const key = shortid.generate()
+                            {state.events.map((event, index) => {
                                 return (
-                                    <Event event={event} key={key} />
+                                    <Event event={event} key={index} />
                                 )
                             })}
                         </tbody>
@@ -45,7 +41,7 @@ const Events = () => {
                     <AnimatedProgressProvider
                         valueStart={0}
                         valueEnd={`${progress}`}
-                        duration={1.4}
+                        duration={2.0}
                         easingFunction={easeQuadInOut}
 
                     >
