@@ -1,4 +1,4 @@
-This project is hosted by AWS-Amplify https://master.d25j8hvvctb9v8.amplifyapp.com/
+This project is hosted by AWS-Amplify https://master.d25j8hvvctb9v8.amplifyapp.com/  
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
